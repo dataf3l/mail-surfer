@@ -17,13 +17,14 @@ jobs:
     #### expecting it in the form of
     ####   /go/src/github.com/circleci/go-tool
     ####   /go/src/bitbucket.org/circleci/go-tool
-    working_directory: /go/src/github.com/dataf3l/mail-surfer/proaplicaciones.com/mail-surfer
+    working_directory: /go/src/github.com/dataf3l/mail-surfer/
     environment:
       TEST_RESULTS: /tmp/test-results
 
     steps:
       - checkout
       - run: mkdir -p $TEST_RESULTS
+      - run: go get github.com/rollbar/rollbar-go
       - run: go get github.com/jstemmer/go-junit-report
 
       - run:
@@ -35,6 +36,7 @@ jobs:
             go test | tee ${TEST_RESULTS}/go-test.out
 
       # specify any bash command here prefixed with `run: `
+      # 
       # - run: go get -v -t -d ./...
       #- run: make
       - run: go test -v
