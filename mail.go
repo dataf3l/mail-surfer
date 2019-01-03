@@ -26,6 +26,9 @@ func GetMaildirList() []string {
 	maildirs = append(maildirs, "/home/teachers2/Maildir/new")
 	maildirs = append(maildirs, "/home/sa/Maildir/cur")
 	maildirs = append(maildirs, "/home/sa/Maildir/new")
+	maildirs = append(maildirs, "/home/drivers/Maildir/cur")
+	maildirs = append(maildirs, "/home/drivers/Maildir/new")
+
 	if os.Getenv("DEVELOPMENT") == "1" {
 		maildirs = make([]string, 0)
 		maildirs = append(maildirs, "/Users/b/work/ntutree/tutree_jobs_v2_dev2/tutree_jobs_v2/mail_parser2/MaildirTeachers/Maildir/new")
